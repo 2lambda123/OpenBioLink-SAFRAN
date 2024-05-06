@@ -20,7 +20,7 @@ class ArgParser(argparse.ArgumentParser):
 def read_predictions(path):
     with open(path, encoding="utf8") as infile:
         while True:
-            triple = infile.readline().strip().split(" ")
+            triple = infile.readline(5_000_000).strip().split(" ")
             if not triple or triple[0] == "":
                 break
             head,rel,tail = triple
