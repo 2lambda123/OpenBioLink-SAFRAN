@@ -55,7 +55,7 @@ def evaluate_policy(path_predictions, n, policy):
             idx = prediction.index(true_entity)
             rank = ranking[idx]
             
-            if rank == 1.:
+            if math.isclose(rank, 1., rel_tol=1e-09, abs_tol=0.0):
                 hits1 = hits1 + 1
             if rank <= 3.:
                 hits3 = hits3 + 1
